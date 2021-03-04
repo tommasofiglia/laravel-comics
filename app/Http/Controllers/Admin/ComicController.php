@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Comic;
+// Comando per importare il comando str
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,7 +16,7 @@ class ComicController extends Controller
      */
     public function index()
     {
-        $comics = Comic::all();
+        $comics = Comic::orderBy('id', 'desc')->get();
         return view('admin.comics.index', compact('comics'));
     }
 
@@ -36,7 +38,30 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $slug = Str::slug($request->title);
+
+        //Validazione per ciò che arriva dal metodo create
+        $comicValidation = $request->validate([
+          'title' => 'required',
+          'price' => 'required',
+          'availability' => 'required',
+          'description' => 'required',
+          'artist' => 'required',
+          'writer' => 'required',
+          'series' => 'required',
+          'sale_date' => 'required',
+          'volume' => 'required',
+          'trim_size' => 'required',
+          'pages' => 'required',
+          'rated' => 'required'
+        ]);
+
+        $comicValidation['slug'] = $slug;
+
+        Comic::create($comicValidation);
+        $comic = Comic::orderby('id', 'desc')->first();
+
+        return redirect()->route('admin.comics.index');
     }
 
     /**
@@ -45,9 +70,9 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Comic $comic)
     {
-        //
+        return view('admin.comics.show', compact('comic'));
     }
 
     /**
@@ -56,9 +81,9 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comic $comic)
     {
-        //
+        return view('admin.comics.edit',compact('comic'));
     }
 
     /**
@@ -68,9 +93,17 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
+      $comics = $request->all();
+      
+      // Modifica dello slug con quello nuovo nel caso in cui modifichi il title
+      $slug = Str::slug($request->title);
+      $comics['slug'] = $slug;
+
+      $comic->update($comics);
+
+      return redirect()->route('admin.comics.index', $comic);
     }
 
     /**
@@ -79,8 +112,9 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comic $comic)
     {
-        //
+      $comic->delete();
+      return redirect()->route('admin.comics.index');
     }
 }
