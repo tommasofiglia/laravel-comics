@@ -1,6 +1,8 @@
 @extends('layouts.dashboard')
 
 @section('content')
+  <div class="container">
+
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
@@ -14,4 +16,6 @@
                     {{ __('Questo è il pannello di amministrazione del sito.') }}
                 </div>
             </div>
+            
+  </div>
 @endsection

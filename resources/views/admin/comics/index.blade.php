@@ -1,9 +1,11 @@
 @extends('layouts.dashboard')
 @section('content')
   <div class="container">
+    <h1 class="mt-5 mb-5 text-center">Tutti i comic per la sezione amministratore</h1>
+  </div>
 
-    <h1>Tutti i post per la sezione amministratore.</h1>
-    <table class="table">
+  <a href="{{route('admin.comics.create')}}" class="btn btn-primary mb-2">Crea nuovo comic</a>
+    <table class="table" style="width:100%;">
       <thead>
         <tr>
           <th>ID</th>
@@ -58,5 +60,4 @@
       </tbody>
     </table>
 
-  </div>
 @endsection

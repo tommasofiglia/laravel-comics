@@ -78,20 +78,16 @@
         <main class="py-4">
           <div class="container">
             <div class="row">
-              <div class="col-lg-2 col-md-2 col-xs-12">
-                <ul class="list-unstyled">
-                  <li>
-                    <a href="{{route('admin.comics.index')}}"> <i class="fas fa-book-open"></i> Comics</a>
-                  </li>
-                </ul>
+              <div class="col-lg-12 col-md-12 col-xs-12">
+                <a href="{{route('admin.comics.index')}}"> <i class="fas fa-book-open"></i> Comics</a>
               </div>
-
-              <div class="col-lg-10 col-md-10 col-xs-12">
-                @yield('content')
-              </div>
-
             </div>
           </div>
+
+          <div class="col-lg-12 col-md-12 col-xs-12">
+            @yield('content')
+          </div>
+
         </main>
     </div>
 </body>
