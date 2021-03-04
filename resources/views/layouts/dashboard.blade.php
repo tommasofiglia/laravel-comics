@@ -18,6 +18,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- FontAwesome Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 </head>
 <body>
     <div id="app">
@@ -73,7 +76,22 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-2 col-md-2 col-xs-12">
+                <ul class="list-unstyled">
+                  <li>
+                    <a href="{{route('admin.comics.index')}}"> <i class="fas fa-book-open"></i> Comics</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="col-lg-10 col-md-10 col-xs-12">
+                @yield('content')
+              </div>
+
+            </div>
+          </div>
         </main>
     </div>
 </body>

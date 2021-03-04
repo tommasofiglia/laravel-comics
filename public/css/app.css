@@ -10944,3 +10944,21 @@ a.text-dark:focus {
   }
 }
 
+nav {
+  height: 115px;
+  align-items: center;
+}
+
+nav a {
+  margin-left: 20px;
+  margin-right: 20px;
+  text-transform: uppercase;
+}
+
+footer {
+  height: 100px;
+  background-color: black;
+  position: relative;
+  top: 70vh;
+}
+

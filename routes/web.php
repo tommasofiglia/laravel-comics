@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// *************************************************************
+// ******************** PARTE PER I GUESTS *********************
+// *************************************************************
+
 // PageController per controllare le pagine del sito
 Route::get('/', 'PageController@index')->name('homepage');
 Route::get('/characters', 'PageController@characters')->name('characters');
@@ -24,8 +28,15 @@ Route::get('/news', 'PageController@news')->name('news');
 Route::get('/shop', 'PageController@shop')->name('shop');
 
 // ComicController per controllare la pagina relativa ai comics, la route get e le relative route resources.
-Route::get('comics', 'ComicController@index')->name('comics-home');
+Route::get('/comics', 'ComicController@index')->name('comics-home');
 
-Auth::routes();
+// *************************************************************
+// ******************* PARTE PER L'ADMIN ***********************
+// *************************************************************
+Auth::routes(['register' => false]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
+
+  Route::get('/', 'AdminController@index')->name('dashboard');
+  Route::resource('/comics', 'ComicController');
+});

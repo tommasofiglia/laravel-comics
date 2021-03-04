@@ -8,4 +8,8 @@
 @import '~bootstrap/scss/bootstrap';
 
 // Imports
+@import 'partials/utility';
+@import 'partials/commons';
+@import 'partials/mixins';
 @import 'layouts/navbar';
+@import 'layouts/footer';
