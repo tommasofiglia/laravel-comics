@@ -1,5 +1,7 @@
 <nav class="d-flex">
-  <a href="{{route('homepage')}}">logo</a>
+  <a href="{{route('homepage')}}">
+    <img src="{{asset('img/logo.png')}}" alt="" id="logo">
+  </a>
   <a href="{{route('characters')}}">characters</a>
   <a href="{{route('comics-home')}}"> comics</a>
   <a href="{{route('movies')}}"> movies</a>

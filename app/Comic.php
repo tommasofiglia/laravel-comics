@@ -1,7 +1,6 @@
 <?php
 
 namespace App;
-
 use Illuminate\Database\Eloquent\Model;
 
 class Comic extends Model
@@ -13,5 +12,5 @@ class Comic extends Model
       return 'slug';
     }
 
-    protected $fillable = ['title' , 'price', 'availability', 'description', 'artist', 'writer', 'series', 'sale_date', 'volume', 'trim_size', 'pages', 'rated', 'slug'];
+    protected $fillable = ['title' , 'price', 'availability', 'description', 'artist', 'writer', 'series', 'sale_date', 'volume', 'trim_size', 'pages', 'rated', 'slug' , 'cover'];
 }

@@ -10955,10 +10955,15 @@ nav a {
   text-transform: uppercase;
 }
 
+nav #logo {
+  width: 80px;
+}
+
 footer {
   height: 100px;
   background-color: black;
   position: relative;
   top: 70vh;
+  background-image: url("/img/footer-bg.jpg");
 }
 

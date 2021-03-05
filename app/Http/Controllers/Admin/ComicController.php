@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Comic;
+use Illuminate\Support\Facades\Storage;
 // Comando per importare il comando str
 use Illuminate\Support\Str;
+// use phpDocumentor\Reflection\Types\Nullable;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -38,6 +40,7 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+      // dd($request->all());
         $slug = Str::slug($request->title);
 
         //Validazione per ciò che arriva dal metodo create
@@ -53,11 +56,13 @@ class ComicController extends Controller
           'volume' => 'required',
           'trim_size' => 'required',
           'pages' => 'required',
-          'rated' => 'required'
+          'rated' => 'required',
+          'cover' => 'nullable | mimes:jpeg,jpg,png,gif | max:1024'
         ]);
-
         $comicValidation['slug'] = $slug;
 
+        $cover = Storage::disk('public')->put('comics_img', $request->cover);
+        $comicValidation['cover'] = $cover;
         Comic::create($comicValidation);
         $comic = Comic::orderby('id', 'desc')->first();
 
@@ -95,11 +100,17 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
+      Storage::delete($comic->cover);
       $comics = $request->all();
-      
+
       // Modifica dello slug con quello nuovo nel caso in cui modifichi il title
       $slug = Str::slug($request->title);
       $comics['slug'] = $slug;
+      
+      // Modifica dell'immagine
+      $cover = Storage::disk('public')->put('comics_img', $request->cover);
+      $comics['cover'] = $cover;
+
 
       $comic->update($comics);
 

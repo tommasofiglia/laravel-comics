@@ -27,6 +27,16 @@
         @enderror
       </div>
 
+      {{-- Input per caricare immagini --}}
+      <div class="form-group">
+          <label for="cover">Cover fumetto</label>
+          <input type="file" class="form-control-file" name="cover" id="cover" placeholder="Inserisci immagine copertina" aria-describedby="coverImgHelper">
+          <small id="coverImgHelper" class="form-text text-muted">Cambia immagine per la cover</small>
+          @error('cover')
+            <div class="alert alert-danger">{{ $message }}</div>
+          @enderror
+      </div>
+
       {{-- Input per il prezzo --}}
       <div class="form-group">
         <label for="price">Inserisci il prezzo</label>

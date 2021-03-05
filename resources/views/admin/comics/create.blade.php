@@ -4,7 +4,7 @@
 
     <h2>Inserisci nuovo fumetto</h2>
 
-    <form action="{{route('admin.comics.store')}}" method="post">
+    <form action="{{route('admin.comics.store')}}" method="post" enctype="multipart/form-data">
       @csrf
 
       @if ($errors->any())
@@ -25,6 +25,16 @@
         @error('title')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
+      </div>
+
+      {{-- Input per caricare immagini --}}
+      <div class="form-group">
+          <label for="cover">Cover fumetto</label>
+          <input type="file" class="form-control-file" name="cover" id="cover" placeholder="Inserisci immagine copertina" aria-describedby="coverImgHelper">
+          <small id="coverImgHelper" class="form-text text-muted">Seleziona immagine per la cover</small>
+          @error('cover')
+            <div class="alert alert-danger">{{ $message }}</div>
+          @enderror
       </div>
 
       {{-- Input per il prezzo --}}
