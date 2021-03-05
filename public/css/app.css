@@ -10944,6 +10944,22 @@ a.text-dark:focus {
   }
 }
 
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.white {
+  color: white;
+}
+
+.blue_principal {
+  color: #0282F9;
+}
+
+.fs-13 {
+  font-size: 13px;
+}
+
 nav {
   height: 115px;
   align-items: center;
@@ -10965,5 +10981,28 @@ footer {
   position: relative;
   top: 70vh;
   background-image: url("/img/footer-bg.jpg");
+}
+
+.cards_container#main_comics {
+  background-color: #1c1c1c;
+  display: flex;
+  justify-content: space-around;
+}
+
+.cards_container#main_comics .card {
+  background-color: transparent;
+  width: 19%;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.cards_container#main_comics .card img {
+  width: 100%;
+}
+
+.cards_container#main_comics .card p {
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 0;
 }
 

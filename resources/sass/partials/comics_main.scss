@@ -1,0 +1,19 @@
+.cards_container#main_comics{
+  background-color: #1c1c1c;
+  display: flex;
+  justify-content: space-around;
+  .card{
+    background-color: transparent;
+    width: 19%;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    img{
+      width: 100%;
+    }
+    p{
+      font-weight: 600;
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+  }
+}

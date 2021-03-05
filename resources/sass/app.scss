@@ -7,9 +7,15 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// Font
+  body{
+    font-family: 'Roboto', sans-serif;
+  }
+    
 // Imports
 @import 'partials/utility';
 @import 'partials/commons';
 @import 'partials/mixins';
 @import 'layouts/navbar';
 @import 'layouts/footer';
+@import 'partials/comics_main';
