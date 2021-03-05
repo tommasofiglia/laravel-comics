@@ -3,7 +3,7 @@
   <div class="container">
     <h2>Modifica il fumetto</h2>
 
-    <form action="{{route('admin.comics.update' ,['comic'=>$comic->slug])}}" method="post">
+    <form action="{{route('admin.comics.update' ,['comic'=>$comic->slug])}}" method="post" enctype="multipart/form-data">
       @csrf
       @method('PUT')
 
@@ -145,7 +145,7 @@
         @enderror
       </div>
 
-      <button type="submit" name="button" class="btn btn-success">Crea Fumetto</button>
+      <button type="submit" name="button" class="btn btn-success">Conferma modifiche fumetto</button>
 
     </form>
 

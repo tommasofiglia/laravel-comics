@@ -29,7 +29,8 @@ Route::get('/shop', 'PageController@shop')->name('shop');
 
 // ComicController per controllare la pagina relativa ai comics, la route get e le relative route resources.
 Route::get('/comics', 'ComicController@index')->name('comics-home');
-Route::get('comics/show', 'ComicController@show')->name('comics.show');
+// DA GUARDARE -------------------------------------
+Route::get('comics/show/{comic}', 'ComicController@show')->name('comics.show');
 
 // *************************************************************
 // ******************* PARTE PER L'ADMIN ***********************

@@ -106,11 +106,10 @@ class ComicController extends Controller
       // Modifica dello slug con quello nuovo nel caso in cui modifichi il title
       $slug = Str::slug($request->title);
       $comics['slug'] = $slug;
-      
+
       // Modifica dell'immagine
       $cover = Storage::disk('public')->put('comics_img', $request->cover);
       $comics['cover'] = $cover;
-
 
       $comic->update($comics);
 
