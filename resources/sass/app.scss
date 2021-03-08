@@ -11,7 +11,7 @@
   body{
     font-family: 'Roboto', sans-serif;
   }
-    
+
 // Imports
 @import 'partials/utility';
 @import 'partials/commons';
@@ -19,3 +19,4 @@
 @import 'layouts/navbar';
 @import 'layouts/footer';
 @import 'partials/comics_main';
+@import 'partials/show.scss';
