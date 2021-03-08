@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('fp_title')
+  Comics |
+@endsection
 @section('content')
 
     <div class="cards_container" id="main_comics">
@@ -10,9 +13,9 @@
         </a>
         <p class="white text-uppercase ml-1 mt-2">{{$comic->title}}</p>
         @if ($comic->availability == 1)
-          <p class="blue_principal text-uppercase ml-1"> Availible now</p>
+          <p class="blue_principal text-uppercase ml-1"> availible now</p>
         @else
-          <p>not available</p>
+          <p class="red text-uppercase ml-1">not available</p>
         @endif
       </div>
 
